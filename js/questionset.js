@@ -57,6 +57,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       finishButtonText: 'Finish',
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
+      submitButtonText: 'Submit',
       showAnimations: false,
       skipButtonText: 'Skip video',
       showSolutionButton: true,
@@ -116,6 +117,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     '    <button type="button" class="h5p-joubelui-button h5p-button qs-retrybutton"><%= retryButtonText %></button>':
     '';
 
+  const submitButtonTemplate = '<button type="button" class="h5p-joubelui-button h5p-button qs-submitbutton"><%= submitButtonText %></button>';
+
   var resulttemplate =
           '<div class="questionset-results">' +
           '  <div class="greeting"><%= message %></div>' +
@@ -132,6 +135,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           '  <div class="buttons">' +
           solutionButtonTemplate +
           retryButtonTemplate +
+          submitButtonTemplate +
           '  </div>' +
           '</div>';
 
@@ -752,7 +756,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         resulttext: params.endGame.showResultPage ? (success ? params.endGame.oldFeedback.successComment : params.endGame.oldFeedback.failComment) : undefined,
         finishButtonText: params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText,
-        retryButtonText: params.endGame.retryButtonText
+        retryButtonText: params.endGame.retryButtonText,
+        submitButtonText: params.endGame.submitButtonText
       };
 
       // Show result page.
@@ -780,6 +785,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             $('.questionset', $myDom).show();
             _showQuestion(params.initialQuestion);
           }
+        });
+        hookUpButton('.qs-submitbutton', function () {
+          self.triggerXAPIScored(self.getScore(), self.getMaxScore(), "submitted-curriki");
         });
 
         if (scoreBar === undefined) {
