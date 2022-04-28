@@ -394,6 +394,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Trigger resize on question in case the size of the QS has changed.
       var instance = questionInstances[questionNumber];
       instance.setActivityStarted();
+      // reset instance activity start time
+      instance.activityStartTime = Date.now();
       if (instance.$ !== undefined) {
         instance.trigger('resize');
       }
@@ -582,6 +584,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       randomizeQuestions();
     }
 
+    // reset instance start time
+    if (self.activityStartTime) {
+      self.activityStartTime = Date.now();
+    }
   };
 
   this.resetTask = function () {
@@ -596,6 +602,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Show first question
       $('.questionset', $myDom).show();
       _showQuestion(params.initialQuestion);
+    }
+    // reset instance start time
+    if (this.activityStartTime) {
+      this.activityStartTime = Date.now();
     }
   };
 
@@ -815,9 +825,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
             _showQuestion(params.initialQuestion);
           }
         });
-        hookUpButton('.qs-submitbutton', function () { 
-           self.triggerXAPIScored(self.getScore(), self.getMaxScore(), "submitted-curriki");
-           self.triggerXAPIScored(self.getScore(), self.getMaxScore(), "answered");
+        hookUpButton('.qs-submitbutton', function () {
+          self.triggerXAPIScored(self.getScore(), self.getMaxScore(), "answered");
+          self.triggerXAPIScored(self.getScore(), self.getMaxScore(), "submitted-curriki");
            var $submit_message = '<div class="submit-answer-feedback" style = "color: red">Result has been submitted successfully</div>';
           H5P.jQuery('.qs-submitbutton').after($submit_message);
         });
@@ -1076,7 +1086,10 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     _updateButtons();
 
     this.trigger('resize');
-
+    // initialize activity start time if root activity
+    if (self.isRoot()) {
+      self.activityStartTime = Date.now();
+    }
     return this;
   };
 
