@@ -76,6 +76,10 @@
           "default": "Заврши"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст напретка",
           "description": "Текст који се користи ако је одабран текстуални напредак.",
           "default": "Питање: @current од @total питања"
@@ -105,6 +109,10 @@
         {
           "label": "Текст тренутног питања",
           "default": "Тренутно питање"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Наслов повратне информације",
           "default": "Ваш резултат:",
           "description": "Овај наслов ће се приказати на крају квиза када корисник одговори на сва питања."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Укупне повратне информације",
@@ -203,6 +216,10 @@
         {
           "label": "Текст дугмета - Заврши",
           "default": "Заврши"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Прикажите видео пре резултата квиза"

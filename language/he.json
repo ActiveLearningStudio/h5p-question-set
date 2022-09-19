@@ -76,6 +76,10 @@
           "default": "סיום"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "תוכן מתקדם",
           "description": "תוכן שבו נעשה שימוש אם תוכן מתקדם נבחר.",
           "default": "שאלה: current@ מתוך total@ שאלות"
@@ -105,6 +109,10 @@
         {
           "label": "תיאור שאלה נוכחית",
           "default": "שאלה נוכחית"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "כותרת המשוב",
           "default": "התוצאה שלכם:",
           "description": "כותרת זו תוצג בסיום החידון כאשר הנבחן ענה על כל השאלות."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "משוב כולל",
@@ -203,6 +216,10 @@
         {
           "label": "\"תוכן כפתור \"סיום",
           "default": "סיום"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "יש להציג וידאו לפני תוצאות החידון"

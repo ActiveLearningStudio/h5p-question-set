@@ -76,6 +76,10 @@
           "default": "Zakończ"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Tekst postępu",
           "description": "Ten tekst zostanie wyświetlony, jeśli wybrana zostanie opcja wyświetlania postępu tekstowo.",
           "default": "Pytanie @current z @total"
@@ -105,6 +109,10 @@
         {
           "label": "Etykieta bieżącego pytania",
           "default": "Bieżące pytanie"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Nagłówek sekcji informacji zwrotnej",
           "default": "Twój wynik:",
           "description": "Ten nagłówek zostanie wyświetlony na ekranie końcowym po udzieleniu odpowiedzi na wszystkie pytania."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Podsumowanie odpowiedzi",
@@ -203,6 +216,10 @@
         {
           "label": "Etykieta przycisku zakończenia",
           "default": "Zakończ"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Odtwórz wideo przed ekranem wyników"

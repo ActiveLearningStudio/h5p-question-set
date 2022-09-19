@@ -76,6 +76,10 @@
           "default": "Край"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Текст за напредък",
           "description": "Текст, който се използва в случай, че е избран да се показва напредъка.",
           "default": "Въпрос: @current от @total въпроси"
@@ -105,6 +109,10 @@
         {
           "label": "Текст за настоящ въпрос",
           "default": "Настоящ въпрос"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Заглавие за обратна връзка",
           "default": "Вашият резултат:",
           "description": "Това заглавие ще се показва накрая на теста, когато ученикът е отговорил на всички въпроси."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Обща обратна връзка",
@@ -203,6 +216,10 @@
         {
           "label": "Текст за бутон Край",
           "default": "Край"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Показване на видео преди резултатите от теста"

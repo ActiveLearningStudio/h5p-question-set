@@ -32,13 +32,14 @@
 }
 .progress-dot {
   display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.5625em;
+  height: 0.5625em;
   border-radius: 50%;
   margin: 0 0.25em;
   cursor: pointer;
-  background: #fff;
-  background: #cecece;
+  border: 1px solid #1356a3;
+  position: relative;
+  transition: transform 0.2s;
 }
 
 .progress-dot.disabled {
@@ -46,32 +47,43 @@
 }
 
 .progress-dot:not(.disabled):hover {
-  box-shadow: 0 0 0.5em #c7c7c7;
+  transform: scale(1.25);
 }
 .progress-dot.answered {
-  background: #73a2d5;
+  background: #1356a3;
 }
-.progress-dot.current {
-  background: #285585;
+.progress-dot:before {
+  display: block;
+  content: "";
+  border: 2px solid transparent;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: border-box;
+  left: -5px;
+  top: -5px;
+  transition: border-color 0.5s;
 }
 
-.progress-dot.disabled:focus {
+.progress-dot.current:before {
+  border-color: #285585;
+}
+
+.progress-dot.disabled:focus-visible {
   outline: none
 }
 
 .progress-dot:focus {
-  outline-color: rgb(40, 130, 211);
-  outline-width: thin;
-  outline-style: solid;
+  transform: scale(1.15);
 }
 
 .intro-page .title {
-  font-size: 2em;
-  line-height: 2em;
+  line-height: 1.5;
   font-weight: bold;
   text-align: center;
 }
-.intro-page .title > span {
+.intro-page .title > h1 {
   padding: 0.125em 0.5em;
   border-radius: 0.125em;
   background: rgb(255,255,255); /* Fallback for browsers not supporting rgba */

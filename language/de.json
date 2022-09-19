@@ -76,6 +76,10 @@
           "default": "Beenden"
         },
         {
+          "label": "\"Absenden\"-Button",
+          "default": "Submit"
+        },
+        {
           "label": "Text der Fortschrittsanzeige",
           "description": "Verwendeter Text, wenn Fortschrittsanzeige in Textform gewählt wurde.",
           "default": "Aktuelle Frage: @current von @total Fragen"
@@ -105,6 +109,10 @@
         {
           "label": "Text für die aktuelle Frage",
           "default": "Aktuelle Frage"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Überschrift der Rückmeldung",
           "default": "Dein Ergebnis:",
           "description": "Diese Überschrift wird am Ende angezeigt, wenn alle Fragen beantwortet wurden."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Gesamtrückmeldung",
@@ -203,6 +216,10 @@
         {
           "label": "Beschriftung des \"Beenden\"-Buttons",
           "default": "Beenden"
+        },
+        {
+          "label": "Beschriftung des \"Absenden\"-Buttons",
+          "default": "Absenden"
         },
         {
           "label": "Zeige ein Video vor den Ergebnissen an"

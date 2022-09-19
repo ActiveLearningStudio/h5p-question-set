@@ -76,6 +76,10 @@
           "default": "Finish"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Progress text",
           "description": "Text used if textual progress is selected.",
           "default": "Question: @current of @total questions"
@@ -105,6 +109,10 @@
         {
           "label": "Current question text",
           "default": "Current question"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -143,6 +151,11 @@
           "description": "This heading will be displayed at the end of the quiz when the user has answered all questions."
         },
         {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
+        },
+        {
           "label": "Overall Feedback",
           "fields": [
             {
@@ -152,7 +165,7 @@
                 }
               ],
               "label": "Define custom feedback for any score range",
-              "description": "Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
+              "description": "Click the \"Add range\" button to add as many ranges as you need. Example: 0-20% Bad score, 21-91% Average Score, 91-100% Great Score!",
               "entity": "range",
               "field": {
                 "fields": [
@@ -205,6 +218,10 @@
           "default": "Finish"
         },
         {
+          "label": "Submit button text",
+          "default": "Submit"
+        },
+        {
           "label": "Display video before quiz results"
         },
         {
@@ -225,7 +242,7 @@
       ]
     },
     {
-      "label": "Settings for \"Show solution\" and \"Retry\" buttons",
+      "label": "Settings for \"Check\", \"Show solution\" and \"Retry\"",
       "fields": [
         {
           "label": "Show \"Check\" buttons",

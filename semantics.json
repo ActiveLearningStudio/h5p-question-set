@@ -123,13 +123,13 @@
       "importance": "high",
       "description": "Library for this question.",
       "options": [
-        "H5P.MultiChoice 1.14",
-        "H5P.DragQuestion 1.13",
-        "H5P.Blanks 1.12",
-        "H5P.MarkTheWords 1.9",
-        "H5P.DragText 1.8",
-        "H5P.TrueFalse 1.6",
-        "H5P.Essay 1.2"
+        "H5P.MultiChoice 1.16",
+        "H5P.DragQuestion 1.14",
+        "H5P.Blanks 1.14",
+        "H5P.MarkTheWords 1.11",
+        "H5P.DragText 1.10",
+        "H5P.TrueFalse 1.8",
+        "H5P.Essay 1.5"
       ]
     }
   },
@@ -160,6 +160,13 @@
         "label": "Finish button",
         "importance": "low",
         "default": "Finish"
+      },
+      {
+        "name": "submitButton",
+        "type": "text",
+        "label": "Submit button",
+        "importance": "low",
+        "default": "Submit"
       },
       {
         "name": "textualProgress",
@@ -217,6 +224,13 @@
         "label": "Current question text",
         "importance": "low",
         "default": "Current question"
+      },
+      {
+        "name": "navigationLabel",
+        "type": "text",
+        "label": "Navigation label for readspeakers",
+        "importance": "low",
+        "default": "Questions"
       }
     ]
   },
@@ -292,6 +306,14 @@
           "em",
           "code"
         ]
+      },
+      {
+        "name": "scoreBarLabel",
+        "type": "text",
+        "label": "Score announcer",
+        "importance": "low",
+        "description": "This label will be used for announcing the final score to the user on the end screen",
+        "default": "You got @finals out of @totals points"
       },
       {
         "name": "overallFeedback",
@@ -444,6 +466,13 @@
         "label": "Finish button text",
         "importance": "low",
         "default": "Finish"
+      },
+      {
+        "name": "submitButtonText",
+        "type": "text",
+        "label": "Submit button text",
+        "importance": "low",
+        "default": "Submit"
       },
       {
         "name": "showAnimations",
