@@ -76,13 +76,17 @@
           "default": "Terminar"
         },
         {
+          "label": "Botón Enviar",
+          "default": "Submit"
+        },
+        {
           "label": "Texto del Progreso",
           "description": "Texto usado si progreso textual es seleccionado.",
           "default": "Pregunta: @current de @total preguntas"
         },
         {
           "label": "Etiqueta para saltar a una pregunta dada",
-          "description": "Usted debe usar el remplazable '%d' en sustitución del número de la pregunta, y %total en lugar de cantidad total de preguntas.",
+          "description": "Usted debe usar el reemplazable '%d' en sustitución del número de la pregunta, y %total en lugar de cantidad total de preguntas.",
           "default": "Pregunta %d de %total"
         },
         {
@@ -105,6 +109,10 @@
         {
           "label": "Texto de pregunta actual",
           "default": "Pregunta actual"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Encabezado de Retroalimentación",
           "default": "Su resultado:",
           "description": "Este encabezado será mostrado al final del examen cuando el usuario haya contestado todas las preguntas."
+        },
+        {
+          "label": "Anunciador del puntaje",
+          "description": "Esta etiqueta será usada para anunciar el puntaje final al usuario en la pantalla final",
+          "default": "Usted obtuvo @finals de @totals puntos"
         },
         {
           "label": "Retroalimentación Global",
@@ -203,6 +216,10 @@
         {
           "label": "Texto botón Terminar",
           "default": "Terminar"
+        },
+        {
+          "label": "Texto del botón Enviar",
+          "default": "Enviar"
         },
         {
           "label": "Mostrar video antes de resultados del examen"

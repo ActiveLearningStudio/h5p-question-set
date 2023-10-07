@@ -4,7 +4,7 @@
       "label": "Introdución ao cuestionario",
       "fields": [
         {
-          "label": "Amosar introdución"
+          "label": "Amosar a introdución"
         },
         {
           "label": "Título",
@@ -76,6 +76,10 @@
           "default": "Rematar"
         },
         {
+          "label": "Botón enviar",
+          "default": "Submit"
+        },
+        {
           "label": "Texto de progreso",
           "description": "Texto usado ao seleccionar progreso textual.",
           "default": "Pregunta: @current de @total preguntas"
@@ -105,6 +109,10 @@
         {
           "label": "Texto para a pregunta actual",
           "default": "Pregunta actual"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Cabeceira da retroalimentación",
           "default": "O teu resultado:",
           "description": "Amosarase esta cabeceira ao final do cuestionario cando o usuario acabe de contestar todas as preguntas."
+        },
+        {
+          "label": "Anunciador da puntuación",
+          "description": "Usarase este etiqueta para anunciar a puntuación final do usuario na pantalla final",
+          "default": "Conseguiches @finals puntos dun total de @totals"
         },
         {
           "label": "Retroalimentación Xeral",
@@ -203,6 +216,10 @@
         {
           "label": "Texto para o botón rematar",
           "default": "Rematar"
+        },
+        {
+          "label": "Texto para o botón de envío",
+          "default": "Enviar"
         },
         {
           "label": "Amosar vídeo antes dos resultados do cuestionario"

@@ -76,6 +76,10 @@
           "default": "Klaar"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Vordering teks",
           "description": "Teks gebruik indien tektuele vordering gekies is.",
           "default": "Vraag: @current van @total vrae"
@@ -105,6 +109,10 @@
         {
           "label": "Huidige vraagteks",
           "default": "Huidige vraag"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Terugvoer opskrif",
           "default": "Jou uitslae:",
           "description": "Hierdie opskrif sal aan die einde van die vasvra vertoon wanneer die gebruiker al die vrae beantwoord het."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Algehele terugvoer",
@@ -203,6 +216,10 @@
         {
           "label": "Klaar knoppieteks",
           "default": "Klaar"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Vertoon video voor vasvra uitslae"

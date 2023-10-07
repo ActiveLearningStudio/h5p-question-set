@@ -76,6 +76,10 @@
           "default": "Potrdi"
         },
         {
+          "label": "Besedilo gumba \"Oddaj\"",
+          "default": "Oddaj"
+        },
+        {
           "label": "Besedilo o napredku",
           "description": "Besedilo v primeru izbire tekstovnega indikatorja napredka.",
           "default": "Vprašanje: @current od @total"
@@ -105,6 +109,10 @@
         {
           "label": "Besedilo trenutnega vprašanja",
           "default": "Trenutno vprašanje"
+        },
+        {
+          "label": "Besedilo za navigacijo bralnikov zaslona",
+          "default": "Vprašanja"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Naslov povratne informacije",
           "default": "Rezultat reševanja:",
           "description": "Besedilo se izpiše na koncu kviza, ko udeleženec reši vsa vprašanja."
+        },
+        {
+          "label": "Sporočilo o doseženem rezultatu",
+          "description": "Besedilo se izpiše na končnem zaslonu kviza in udeleženca obvesti o doseženih točkah.",
+          "default": "Dosežene točke: @finals od @totals"
         },
         {
           "label": "Splošna povratna informacija",
@@ -193,16 +206,20 @@
         {
           "label": "Besedilo za gumb \"Prikaži rešitev\"",
           "default": "Prikaži rešitev",
-          "description": ""
+          "description": "Text for the solution button."
         },
         {
           "label": "Besedilo za gumb \"Poskusi ponovno\"",
           "default": "Poskusi ponovno",
-          "description": ""
+          "description": "Text for the retry button."
         },
         {
           "label": "Besedilo gumba \"Potrdi\"",
           "default": "Potrdi"
+        },
+        {
+          "label": "Besedilo gumba \"Oddaj\"",
+          "default": "Oddaj"
         },
         {
           "label": "Predvajaj videoposnetek ob zaključku kviza"

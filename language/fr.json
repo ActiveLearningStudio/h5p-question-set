@@ -76,6 +76,10 @@
           "default": "Terminer"
         },
         {
+          "label": "Submit button",
+          "default": "Vérifier"
+        },
+        {
           "label": "Texte de progression",
           "description": "Texte utilisé si la progression textuelle a été sélectionnée.",
           "default": "Question @current sur @total"
@@ -105,6 +109,10 @@
         {
           "label": "Texte de la question en cours",
           "default": "Question en cours"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Titre des commentaires",
           "default": "Vos résultats :",
           "description": "Ce titre sera affiché à la fin du quiz quand l'utilisateur aura répondu à toutes les questions."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Opacité des étiquettes",
@@ -203,6 +216,10 @@
         {
           "label": "Texte pour le bouton de fin",
           "default": "Terminer"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Afficher une vidéo avant l'affichage des résultats du quiz"

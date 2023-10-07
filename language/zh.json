@@ -76,6 +76,10 @@
           "default": "完成"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "進度顯示文字",
           "description": "若進度指示選擇文字式時顯示的文字。",
           "default": "第 @current 題，共 @total 題。"
@@ -105,6 +109,10 @@
         {
           "label": "目前題目顯示文字",
           "default": "目前題目"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "測驗回饋標題文字",
           "default": "你的測驗結果為：",
           "description": "當用戶回答了所有問題後，在結束頁面上會顯示的標題文字。"
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "總結回饋",
@@ -203,6 +216,10 @@
         {
           "label": "完成按鈕的顯示文字",
           "default": "完成"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "在測驗結果出現前顯示影片"

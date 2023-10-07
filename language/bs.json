@@ -76,6 +76,10 @@
           "default": "Kraj"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Početni tekst",
           "description": "Koristi tekst ako je izabran za napredak u pisanom obliku.",
           "default": "Aktuelno pitanje: @current od @total pitanja"
@@ -105,6 +109,10 @@
         {
           "label": "Tekst za trenutno pitanja",
           "default": "Trenutno pitanje"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Tekst za prikaz broj odova",
           "default": "Osvojeno @score bodova od @total mogućih.",
           "description": "Ovaj tekst će se koristiti da prikaže ukupan broj bodova korisnika. \"@score\" će biti zamjenjen sa osvojenim bodovima, \"@total\" će biti zamjenjeno sa maksimalnim brojem bodova."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Pozadinska zamućenost za elemente za uzimanje",
@@ -203,6 +216,10 @@
         {
           "label": "Prikaži video prije rezultata kviza",
           "default": "Kraj"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Aktiviraj dugme \"Preskoči vidio\""

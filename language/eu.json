@@ -76,6 +76,10 @@
           "default": "Bukatu"
         },
         {
+          "label": "Bidaltzeko botoia",
+          "default": "Submit"
+        },
+        {
           "label": "Aurrerapenaren testua",
           "description": "Testu-aurrerapena hautatuta badago erabiltzen den testua.",
           "default": "Galdera: @total galderetatik @current -garrena"
@@ -105,6 +109,10 @@
         {
           "label": "Uneko galderaren testua",
           "default": "Uneko galdera"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -130,7 +138,7 @@
           "label": "Bistaratu soluzioaren botoia"
         },
         {
-          "label": "Erakutsi berriz saiatu botoia"
+          "label": "Erakutsi saiatu berriro botoia"
         },
         {
           "label": "Emaitzarik ez mezua",
@@ -141,6 +149,11 @@
           "label": "Feedbackaren goiburua",
           "default": "Zure emaitza:",
           "description": "Goiburu hau erakutsiko da galdetegiaren bukaeran erabiltzaileak galdera guztiak erantzun dituenean."
+        },
+        {
+          "label": "Puntuazio iragarkia",
+          "description": "Etiketa hau erabiltzaileari pantailan amaierako puntuazioa erakusteko erabiliko da",
+          "default": "@finals puntu lortu duzu guztirako @totals puntutik"
         },
         {
           "label": "Feedback orokorra",
@@ -192,7 +205,7 @@
         },
         {
           "label": "Soluzioaren botoiaren etiketa",
-          "default": "Erakutsi soluzioa",
+          "default": "Erakutsi emaitza",
           "description": "Soluzioaren botoiaren testua."
         },
         {
@@ -203,6 +216,10 @@
         {
           "label": "Bukatu botoiaren testua",
           "default": "Bukatu"
+        },
+        {
+          "label": "Bidaltzeko botoiaren testua",
+          "default": "Bidali"
         },
         {
           "label": "Bistaratu bideoa galdetegiaren emaitzen aurretik"
@@ -225,15 +242,15 @@
       ]
     },
     {
-      "label": "\"Erakutsi soluzioa\" eta \"Saiatu berriro \" ezarpenak",
+      "label": "\"Erakutsi emaitza\" eta \"Saiatu berriro\" ezarpenak",
       "fields": [
         {
           "label": "Erakutsi \"Egiaztatu\" botoiak",
           "description": "Aukera honek zehazten du \"Egiaztatu\" botoia galdera guztietan erakutsiko den."
         },
         {
-          "label": "Utzi \"Erakutsi soluzioa\" botoia",
-          "description": "Aukera honek zehazten du \"Bistaratu soluzioa\" botoia erakutsi behar den galdera guztietan, guztientzat desgaitua edo galdera bakoitzerako banaka ezarrita dagoela.",
+          "label": "Baliogabetu \"Erakutsi emaitza\" botoia",
+          "description": "Aukera honek zehazten du \"Erakutsi emaitza\" botoia erakutsi behar den galdera guztietan, guztientzat desgaitua edo galdera bakoitzerako banaka ezarrita dagoela.",
           "options": [
             {
               "label": "Gaitua"
@@ -244,8 +261,8 @@
           ]
         },
         {
-          "label": "Utzi \"Saiatu berriro \" botoia",
-          "description": "Aukera honek zehazten du \"Osatu berriro\" botoia erakutsi behar den galdera guztietarako, denetarako desgaitua edo galdera bakoitzean ezarrita.",
+          "label": "Baliogabetu \"Saiatu berriro\" botoia",
+          "description": "Aukera honek zehazten du \"Saiatu berriro\" botoia erakutsi behar den galdera guztietarako, denetarako desgaitua edo galdera bakoitzean ezarrita.",
           "options": [
             {
               "label": "Gaitua"

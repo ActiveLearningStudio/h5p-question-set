@@ -76,6 +76,10 @@
           "default": "Bitir"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "İlerleme metni",
           "description": "İlerleme göstergesi olarak metin seçildiyse kullanılacak metin.",
           "default": "Soru: @current / @total"
@@ -105,6 +109,10 @@
         {
           "label": "Geçerli soru için metin",
           "default": "Geçerli soru"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Geri bildirim başlığı",
           "default": "Sonucunuz:",
           "description": "Bu başlık, kullanıcı tüm soruları yanıtladığında sınavın sonunda görüntülenecektir."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Genel geri bildirim",
@@ -200,10 +213,13 @@
           "default": "Yeniden Dene",
           "description": "Yeniden dene butonu için etiket"
         },
-        
         {
           "label": "Bitir butonu için etiket",
           "default": "Bitir"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Sınav sonuçlarından önce videoyu göster"

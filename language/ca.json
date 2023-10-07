@@ -76,6 +76,10 @@
           "default": "Finalitza"
         },
         {
+          "label": "Submit button",
+          "default": "Submit"
+        },
+        {
           "label": "Text del progrés",
           "description": "Text que s’utilitza si se selecciona el progrés textual.",
           "default": "Pregunta: @current de @total"
@@ -105,6 +109,10 @@
         {
           "label": "Text de la pregunta actual",
           "default": "Pregunta actual"
+        },
+        {
+          "label": "Navigation label for readspeakers",
+          "default": "Questions"
         }
       ]
     },
@@ -141,6 +149,11 @@
           "label": "Encapçalament de la retroacció",
           "default": "El seu resultat:",
           "description": "Aquest títol es mostrarà al final del qüestionari quan l’usuari hagi respost a totes les preguntes."
+        },
+        {
+          "label": "Score announcer",
+          "description": "This label will be used for announcing the final score to the user on the end screen",
+          "default": "You got @finals out of @totals points"
         },
         {
           "label": "Suggeriment general",
@@ -203,6 +216,10 @@
         {
           "label": "Text del botó \"Finalitza\"",
           "default": "Finalitza"
+        },
+        {
+          "label": "Submit button text",
+          "default": "Submit"
         },
         {
           "label": "Mostra el vídeo abans dels resultats del qüestionari"

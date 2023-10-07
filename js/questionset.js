@@ -40,18 +40,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       prevButton: 'Previous question',
       nextButton: 'Next question',
       finishButton: 'Finish',
+      submitButton: 'Submit',
       textualProgress: 'Question: @current of @total questions',
       jumpToQuestion: 'Question %d of %total',
       questionLabel: 'Question',
       readSpeakerProgress: 'Question @current of @total',
       unansweredText: 'Unanswered',
       answeredText: 'Answered',
-      currentQuestionText: 'Current question'
+      currentQuestionText: 'Current question',
+      navigationLabel: 'Questions'
     },
     endGame: {
       showResultPage: true,
       noResultMessage: 'Finished',
       message: 'Your result:',
+      scoreBarLabel: 'You got @finals out of @totals points',
       oldFeedback: {
         successGreeting: '',
         successComment: '',
@@ -60,6 +63,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       },
       overallFeedback: [],
       finishButtonText: 'Finish',
+      submitButtonText: 'Submit',
       solutionButtonText: 'Show solution',
       retryButtonText: 'Retry',
       submitButtonText: 'Submit',
@@ -77,29 +81,31 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     },
     disableBackwardsNavigation: false
   };
+  this.isSubmitting = contentData
+         && (contentData.isScoringEnabled || contentData.isReportingEnabled);
   var params = $.extend(true, {}, defaults, options);
 
   var texttemplate =
-          '<% if (introPage.showIntroPage) { %>' +
+          '<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %>' +
           '<div class="intro-page">' +
           '  <% if (introPage.title) { %>' +
-          '    <div class="title"><span><%= introPage.title %></span></div>' +
+          '    <div class="title"><h1><%= introPage.title %></h1></div>' +
           '  <% } %>' +
           '  <% if (introPage.introduction) { %>' +
           '    <div class="introduction"><%= introPage.introduction %></div>' +
           '  <% } %>' +
-          '  <div class="buttons"><a href="#" class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></a></div>' +
+          '  <div class="buttons"><button class="qs-startbutton h5p-joubelui-button h5p-button"><%= introPage.startButtonText %></button></div>' +
           '</div>' +
           '<% } %>' +
           '<div tabindex="-1" class="qs-progress-announcer"></div>' +
-          '<div class="questionset<% if (introPage.showIntroPage) { %> hidden<% } %>">' +
+          '<div class="questionset<% if (introPage.showIntroPage && noOfQuestionAnswered === 0) { %> hidden<% } %>">' +
           '  <% for (var i=0; i<questions.length; i++) { %>' +
           '    <div class="question-container"></div>' +
           '  <% } %>' +
           '  <div class="qs-footer">' +
-          '    <div class="qs-progress">' +
+          '    <div class="qs-progress" role="navigation" aria-label="<%= texts.navigationLabel %>">' +
           '      <% if (progressType == "dots") { %>' +
-          '        <ul class="dots-container" role="navigation">' +
+          '        <ul class="dots-container">' +
           '          <% for (var i=0; i<questions.length; i++) { %>' +
           '           <li class="progress-item">' +
           '             <a href="#" ' +
@@ -248,9 +254,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   }
 
-  // Create the html template for the question container
-  var $template = $(template.render(params));
-
   // Set overrides for questions
   var override;
   if (params.override.showSolutionButton || params.override.retryButton || params.override.checkButton === false) {
@@ -319,6 +322,21 @@ H5P.QuestionSet = function (options, contentId, contentData) {
 
   // Create question instances from questions given by params
   questionInstances = createQuestionInstancesFromQuestions(params.questions);
+  params.noOfQuestionAnswered = 0;
+  if (contentData.previousState) {
+    // get numbers of questions answered by user
+    if (contentData.previousState.answers) {
+      for (var i = 0; i < questionInstances.length; i++) {
+        let answered = questionInstances[i].getAnswerGiven();
+        if (answered){
+          params.noOfQuestionAnswered++;
+        }
+      }
+    }
+  }
+
+  // Create the html template for the question container
+  var $template = $(template.render(params));
 
   // Randomize questions only on instantiation
   if (params.randomQuestions && contentData.previousState === undefined) {
@@ -369,12 +387,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
   };
 
-  var _stopQuestion = function (questionNumber) {
-    if (questionInstances[questionNumber]) {
-      pauseMedia(questionInstances[questionNumber]);
-    }
-  };
-
   var _showQuestion = function (questionNumber, preventAnnouncement) {
     // Sanitize input.
     if (questionNumber < 0) {
@@ -385,8 +397,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     }
 
     currentQuestion = questionNumber;
-
-    handleAutoPlay(currentQuestion);
 
     // Hide all questions
     $('.question-container', $myDom).hide().eq(questionNumber).show();
@@ -439,31 +449,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
     self.trigger('resize');
     return currentQuestion;
   };
-
-  /**
-   * Handle autoplays, limit to one at a time
-   *
-   * @param {number} currentQuestionIndex
-   */
-  var handleAutoPlay = function (currentQuestionIndex) {
-    for (var i = 0; i < questionInstances.length; i++) {
-      questionInstances[i].pause();
-    }
-
-    var currentQuestion = params.questions[currentQuestionIndex];
-
-    var hasAutoPlay = currentQuestion &&
-        currentQuestion.params.media &&
-        currentQuestion.params.media.params &&
-        currentQuestion.params.media.params.playback &&
-        currentQuestion.params.media.params.playback.autoplay;
-
-    if (hasAutoPlay && typeof questionInstances[currentQuestionIndex].play === 'function') {
-      questionInstances[currentQuestionIndex].play();
-    }
-  };
-
-
 
   /**
    * Show solutions for subcontent, and hide subcontent buttons.
@@ -689,7 +674,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       return;
     }
 
-    _stopQuestion(currentQuestion);
     if (currentQuestion + direction >= questionInstances.length) {
       _displayEndGame();
     }
@@ -793,7 +777,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         message: params.endGame.showResultPage ? params.endGame.message : params.endGame.noResultMessage,
         comment: params.endGame.showResultPage ? (success ? params.endGame.oldFeedback.successGreeting : params.endGame.oldFeedback.failGreeting) : undefined,
         resulttext: params.endGame.showResultPage ? (success ? params.endGame.oldFeedback.successComment : params.endGame.oldFeedback.failComment) : undefined,
-        finishButtonText: params.endGame.finishButtonText,
+        finishButtonText: (self.isSubmitting) ? params.endGame.submitButtonText : params.endGame.finishButtonText,
         solutionButtonText: params.endGame.solutionButtonText,
         retryButtonText: params.endGame.retryButtonText,
         submitButtonText: params.currikisettings.currikil10n.submitAnswer
@@ -811,7 +795,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
           _showQuestion(params.initialQuestion);
         });
         hookUpButton('.qs-retrybutton', function () {
-          resetTask();
+          self.resetTask();
           $myDom.children().hide();
 
           var $intro = $('.intro-page', $myDom);
@@ -842,8 +826,9 @@ H5P.QuestionSet = function (options, contentId, contentData) {
         // Announce that the question set is complete
         setTimeout(function () {
           $('.qs-progress-announcer', $myDom)
-            .html(eparams.message + '.' +
+            .html(eparams.message + 
                   scoreString + '.' +
+                  (params.endGame.scoreBarLabel).replace('@finals', finals).replace('@totals', totals) + '.' +
                   eparams.comment + '.' +
                   eparams.resulttext)
             .show().focus();
@@ -924,7 +909,8 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       registerImageLoadedListener(question);
 
       // Add finish button
-      question.addButton('finish', params.texts.finishButton,
+      const finishButtonText = (self.isSubmitting) ? params.texts.submitButton : params.texts.finishButton
+      question.addButton('finish', finishButtonText,
         moveQuestion.bind(this, 1), false);
 
       // Add next button
@@ -937,7 +923,7 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       // Add previous button
       question.addButton('prev', '', moveQuestion.bind(this, -1),
         !(questionInstances[0] === question || params.disableBackwardsNavigation), {
-          href: '#', // Use href since this is a navigation button
+          href: '#', // Use href since this is a navigation buttonq
           'aria-label': params.texts.prevButton
         });
 
@@ -1040,7 +1026,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
       if (params.disableBackwardsNavigation && !showingSolutions) {
         return;
       }
-      _stopQuestion(currentQuestion);
       _showQuestion($(this).parent().index());
     };
 
@@ -1204,25 +1189,6 @@ H5P.QuestionSet = function (options, contentId, contentData) {
   };
 
   /**
-   * Stop the given element's playback if any.
-   *
-   * @param {object} instance
-   */
-  var pauseMedia = function (instance) {
-    try {
-      if (instance.pause !== undefined &&
-        (instance.pause instanceof Function ||
-        typeof instance.pause === 'function')) {
-        instance.pause();
-      }
-    }
-    catch (err) {
-      // Prevent crashing, log error.
-      H5P.error(err);
-    }
-  };
-
-  /**
    * Returns the complete state of question set and sub-content
    *
    * @returns {Object} current state
@@ -1301,10 +1267,16 @@ H5P.QuestionSet = function (options, contentId, contentData) {
    */
   this.getContext = function () {
     // Get question index and add 1, count starts from 0
-    return {
+    let contextObject = {
       type: 'question',
       value: (currentQuestion + 1)
     };
+
+    // Send actual index of the question if questions are randomized
+    if (params.randomQuestions) {
+      contextObject.actual = questionOrder[currentQuestion] + 1;
+    }
+    return contextObject;
   };
 };
 
